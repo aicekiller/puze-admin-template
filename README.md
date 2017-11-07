@@ -18,17 +18,20 @@ npm run build
 npm run build --report
 ```
 
-For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
-
-
 # 11月份计划 11.7 - 11.17(周五)
-
-#### 11.7 - 11.12
+                
+#### First
 使用`vue + ElementUI`搭建出一个后台简版admin-template，功能包括基本的导航、表格、api请求，登录模块。
 
-#### 11.13 - 11.17
+#### Second
 完成后简单分享vue项目和react项目区别。比如脚手架vue-cli和create-react-app 
 、状态管理vuex和redux。
+
+
+#### 11.7
+使用`vue-cli`初始化工程，了解一些配置文件的作用。(.babelrc等等)
+
+
 
 
 
