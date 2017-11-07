@@ -31,6 +31,8 @@ npm run build --report
 #### 11.7
 使用`vue-cli`初始化工程，了解一些配置文件的作用。(.babelrc等等)
 
+#### 测试
+
 
 
 
