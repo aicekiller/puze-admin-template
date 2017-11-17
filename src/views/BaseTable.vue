@@ -87,9 +87,9 @@
           this.list = res.data
           this.total = res.page.totalCount
           this.listLoading = false
-          console.log(res)
         })
       }
+
     }
   }
 </script>
