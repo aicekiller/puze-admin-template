@@ -44,6 +44,7 @@
     <div class="pagination">
       <el-pagination
         @current-change="handleCurrentChange"
+        :current-page.sync="listQuery.pageIndex"
         layout="prev, pager, next"
         :total="total">
       </el-pagination>

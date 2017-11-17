@@ -23,7 +23,7 @@
     },
     computed: {
       username () {
-        var userName = localStorage.getItem('ms_username')
+        let userName = localStorage.getItem('ms_username')
         return userName
       }
     },
