@@ -92,6 +92,9 @@
 </script>
 
 <!--基于postcss 增加了一个作用域-->
-<style scoped>
+<!--
+  使用sass,只需要增加node-sass和sass-loader这个两个npm包即可.
+-->
+<style lang="" scoped>
 
 </style>
