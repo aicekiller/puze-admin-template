@@ -1,3 +1,4 @@
+<!--不必使用 <script type="text/x-template">-->
 <template>
   <div class="table">
     <div class="crumbs">
@@ -40,6 +41,11 @@
   </div>
 </template>
 
+<!--
+  每个 Vue 实例在被创建之前都要经过一系列的初始化过程。比如
+  设置数据监听、编译模板、挂载实例到 DOM、在数据变化时更新 DOM等
+  生命周期钩子函数
+-->
 <script>
   import {merchantGetOrderList} from '@/api/BaseTable'
 
@@ -64,6 +70,7 @@
       this.getData()
     },
     computed: {},
+    //  事件处理
     methods: {
       getData () {
         merchantGetOrderList(this.listQuery).then(res => {
@@ -84,6 +91,7 @@
   }
 </script>
 
+<!--基于postcss 增加了一个作用域-->
 <style scoped>
 
 </style>
