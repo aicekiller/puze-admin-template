@@ -6,12 +6,12 @@
         <el-breadcrumb-item>基础表格</el-breadcrumb-item>
       </el-breadcrumb>
     </div>
-    <el-form :inline="true" :model="formInline" class="demo-form-inline">
+    <el-form :inline="true" class="demo-form-inline">
       <el-form-item label="姓名:">
-        <el-input v-model="formInline.name" placeholder="姓名"></el-input>
+        <el-input v-model="listQuery.name" placeholder="姓名"></el-input>
       </el-form-item>
       <el-form-item label="手机号码:">
-        <el-input v-model="formInline.cellphone" placeholder="手机号码"></el-input>
+        <el-input v-model="listQuery.phone" placeholder="手机号码"></el-input>
       </el-form-item>
       <el-form-item>
         <el-button type="primary" icon="search" @click="search">搜索</el-button>
@@ -24,22 +24,10 @@
       border
       style="width: 100%"
       ref="multipleTable"
-      @selection-change="handleSelectionChange">
-      <el-table-column align="center" label="商户ID" width="65">
-        <template scope="scope">
-          <span>{{scope.row.merchantId}}</span>
-        </template>
-      </el-table-column>
-      <el-table-column align="center" label="订单号">
-        <template scope="scope">
-          <span>{{scope.row.orderId}}</span>
-        </template>
-      </el-table-column>
-      <el-table-column align="center" label="费用">
-        <template scope="scope">
-          <span>{{scope.row.totalPrice}}</span>
-        </template>
-      </el-table-column>
+    >
+      <el-table-column align="center" prop="merchantId" label="商户ID" width="65"></el-table-column>
+      <el-table-column align="center" prop="orderId" label="订单号"></el-table-column>
+      <el-table-column align="center" prop="totalPrice" label="费用"></el-table-column>
     </el-table>
     <div class="pagination">
       <el-pagination
@@ -53,15 +41,11 @@
 </template>
 
 <script>
-  import { merchantGetOrderList } from '@/api/BaseTable'
+  import {merchantGetOrderList} from '@/api/BaseTable'
 
   export default {
     data () {
       return {
-        formInline: {
-          name: '',
-          cellphone: ''
-        },
         list: null,
         total: null,
         listLoading: true,
@@ -83,13 +67,19 @@
     methods: {
       getData () {
         merchantGetOrderList(this.listQuery).then(res => {
-          console.log(res)
           this.list = res.data
           this.total = res.page.totalCount
           this.listLoading = false
         })
+      },
+      handleCurrentChange (val) {
+        this.listQuery.pageIndex = val
+        this.getData()
+      },
+      search () {
+        this.listQuery.pageIndex = 1
+        this.getData()
       }
-
     }
   }
 </script>
